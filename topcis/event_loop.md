@@ -84,15 +84,174 @@
 
 ## Примеры
 
-```js
-for (var i = 0; i < 3; i++) {
-  setTimeout(() => console.log(i), 1);
-}
+<details>
+  <summary>Пример #1, простой</summary>
 
-for (let i = 0; i < 3; i++) {
-  setTimeout(() => console.log(i), 1);
-}
+```js
+  setTimeout(() => console.log('Таймаут'), 0);
+
+  let promise = new Promise((resolve, reject) => {
+    console.log('Создание промиса');
+    resolve()
+  })
+
+  promise.then(() => console.log('Обработка промиса'));
+
+  console.log('Конец скрипта');
 ```
+
+Решение:
+
+1. Макрозадача `setTimeout(() => console.log('Таймаут'), 0)` в очередь макрозадач (в очереди нет пока никого и задача первая)
+1. Микрозадача, но внутри нее основной поток, ничего сложного, выводим `console.log('Создание промиса')` и в очередь микрозадач (в очереди нет пока никого и задача первая)
+1. Микрозадача `() => console.log('Обработка промиса')` в очередь микрозадач (сейчас там пункт `2`)
+1. Основной поток, ничего сложного, выводим `console.log('Конец скрипта')`
+
+Вывод:
+
+```js
+output: 'Создание промиса'  // основной поток
+output: 'Конец скрипта'     // основной поток
+output: 'Обработка промиса' // микрозадача
+output: 'Таймаут'           // макрозадача
+```
+
+</details>
+
+
+<details>
+  <summary>Пример #2, сложный</summary>
+
+```js
+console.log(1);
+
+setTimeout(() => console.log(2));
+
+Promise.resolve().then(() => console.log(3));
+
+Promise.resolve().then(() => setTimeout(() => console.log(4)));
+
+Promise.resolve().then(() => console.log(5));
+
+setTimeout(() => console.log(6));
+
+console.log(7);
+```
+
+1. Основной поток, ничего сложного, выводим `console.log(1)`
+1. Макрозадача `setTimeout(() => console.log(2))` в очередь макрозадач (в очереди нет пока никого и задача первая)
+1. Микрозадача `console.log(3)` помещаем в очередь (в очереди нет пока никого и задача первая)
+1. Микрозадача `setTimeout(() => console.log(4))` в которой лежит макрозадача. Тут главное не переживать и помнить, что когда очередь дойдет до этой задачи, то мы просто поместим в конец макрозадач эту задачу
+1. Микрозадача `console.log(5)` помечаем в очередь (сейчас там пункты `3`, `4`)
+1. Макрозадача `setTimeout(() => console.log(6))` в очередь (сейчас там пункты `1`, в самом конце `4`)
+1. Основной поток, ничего сложного, выводим `console.log(7)`
+
+Вывод:
+
+```js
+output: '1' // основной поток
+output: '7' // основной поток
+output: '3' // микрозадача
+output: '5' // микрозадача
+output: '2' // макрозадача
+output: '6' // макрозадача
+output: '4' // создание макрозадачи внутри микрозадачи
+```
+
+</details>
+
+<details>
+  <summary>Пример #3, сложный</summary>
+
+```js
+console.log(1);
+
+setTimeout(() => console.log(2));
+
+Promise.reject(3).catch(console.log);
+
+new Promise(resolve => setTimeout(resolve)).then(() => console.log(4));
+
+Promise.resolve(5).then(console.log);
+
+console.log(6);
+
+setTimeout(() => console.log(7),0);
+
+```
+
+Здесь все как в задаче выше, но стоить заметить, что
+> new Promise(resolve => setTimeout(resolve)).then(() => console.log(4))
+Макрозадача порождает микрозадачу, а это значит, что теперь выполнение макрозадач завершается пока не выполнятся все микрозадачи.
+
+Поэтому после `2` идет `4` а потом уже `7`
+
+Вывод:
+
+```js
+output: '1' // основной поток
+output: '6' // основной поток
+output: '3' // микрозадача
+output: '5' // микрозадача
+output: '2' // макрозадача
+output: '4' // микрозадача
+output: '7' // макрозадача
+```
+
+</details>
+
+</details>
+
+<details>
+  <summary>Пример #4, на самопроверку</summary>
+
+```js
+const myPromise = (delay) => new Promise((res, rej) => { setTimeout(res, delay) })
+
+setTimeout(() => console.log('in setTimeout1'), 1000);
+myPromise(1000).then(res => console.log('in Promise 1'));
+setTimeout(() => console.log('in setTimeout2'), 100);
+myPromise(2000).then(res => console.log('in Promise 2')); 
+setTimeout(() => console.log('in setTimeout3'), 2000);
+myPromise(1000).then(res => console.log('in Promise 3'));
+setTimeout(() => console.log('in setTimeout4'), 1000);
+myPromise(5000).then(res => console.log('in Promise '));
+
+```
+
+Здесь без таблички мне сложно в голове все смоделировать
+
+Начнем с того, что у нас есть очередь WEB.API
+
+Давайте ее для начала заполним
+
+- () => console.log('in setTimeout1'), 1000
+- promise(setTimeout), 1000
+- () => console.log('in setTimeout2'), 100
+- promise(setTimeout), 2000
+- () => console.log('in setTimeout3'), 2000
+- promise(setTimeout), 1000
+- () => console.log('in setTimeout4'), 1000
+- promise(setTimeout), 5000
+
+теперь все задачи зарегистрированы и теперь становится ясно, что тут все дело в таймере, у кого таймер истек, то идет в очередь выполнения
+
+Первый таймер - 100, а там макротаска - console.log('in setTimeout2'), до следующей задачи 900 миллисекунд
+
+Вывод
+```js
+output: 'in setTimeout2'
+output: 'in setTimeout1'
+output: 'in Promise 1'
+output: 'in Promise 3'
+output: 'in setTimeout4'
+output: 'in Promise 2'
+output: 'in setTimeout3'
+output: 'in Promise'
+```
+
+
+</details>
 
 ## Источники данных
 
