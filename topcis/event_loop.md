@@ -201,8 +201,6 @@ output: '7' // макрозадача
 
 </details>
 
-</details>
-
 <details>
   <summary>Пример #4, на самопроверку</summary>
 
@@ -250,7 +248,6 @@ output: 'in Promise 2'
 output: 'in setTimeout3'
 output: 'in Promise'
 ```
-
 
 </details>
 
