@@ -3,6 +3,8 @@
   <img src="./assets/JavaScript.png" width="20" height="20" />
 </h1>
 
+<img src="./assets/job_interview.jpg"/>
+
 ## Мотивация
 
 Собрать, структурировать, переосмыслить базовые темы по JavaScript
