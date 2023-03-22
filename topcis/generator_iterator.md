@@ -279,3 +279,4 @@ console.log(generator.next(200));
 - [Генераторы](https://learn.javascript.ru/generators)
 - [The Iterator protocol](https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Iteration_protocols)
 - [ecma262/sec-iteration](https://tc39.es/ecma262/#sec-iteration)
+- [Углублённое руководство по JavaScript: генераторы. Часть 1, основы](https://habr.com/ru/company/vk/blog/539194/)
