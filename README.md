@@ -19,3 +19,4 @@
 - [Что такое итератор, генератор и как ими пользоваться?](./topcis/generator_iterator.md)
 - [Какие коллекции существуют?](./topcis/collections.md)
 - [Как создавать асинхронный код?](./topcis/async.md)
+- [Что такое Runtime?](./topcis/runtime.md)
