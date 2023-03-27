@@ -20,3 +20,4 @@
 - [Какие коллекции существуют?](./topcis/collections.md)
 - [Как создавать асинхронный код?](./topcis/async.md)
 - [Что такое Runtime?](./topcis/runtime.md)
+- [Сборка мусора | Как происходит сборка ненужных объектов?](./topcis/garbage_collect.md)
