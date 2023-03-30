@@ -21,5 +21,6 @@
 - [Как создавать асинхронный код?](./topcis/async.md)
 - [Что такое Runtime?](./topcis/runtime.md)
 - [Как можно объявить функцию и какие есть особенности?](./topcis/function.md)
+- [Как называть переменные и функции?](./topcis/nameing_rules.md)
 - [Сборка мусора | Как происходит сборка ненужных объектов?](./topcis/garbage_collect.md)
 - [Как вести отладку когда в Google Chrome?](./topcis/debugging.md)
