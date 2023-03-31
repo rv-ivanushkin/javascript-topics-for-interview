@@ -23,6 +23,7 @@
 - [Как создавать асинхронный код?](./topcis/async.md)
 - [Что такое `Runtime`?](./topcis/runtime.md)
 - [Как можно объявить функцию и какие есть особенности?](./topcis/function.md)
+  - А так же `Higher Order Functions` или функции высшего порядка
 - [Как называть переменные и функции?](./topcis/nameing_rules.md)
 - [Сборка мусора | Как происходит сборка ненужных объектов?](./topcis/garbage_collect.md)
 - [Как вести отладку когда в Google Chrome?](./topcis/debugging.md)
