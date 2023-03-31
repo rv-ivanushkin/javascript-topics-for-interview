@@ -18,6 +18,8 @@
 - [Что такое `event-loop` и как он работает?](./topcis/event_loop.md)
 - [Что такое итератор, генератор и как ими пользоваться?](./topcis/generator_iterator.md)
 - [Какие коллекции существуют?](./topcis/collections.md)
+- [Что такое контекст вызова или `this` и как его явно установить?](./topcis/this.md)
+  - А так же такие ключевые слова, как: `call`, `apply`, `bind`, `new`
 - [Как создавать асинхронный код?](./topcis/async.md)
 - [Что такое `Runtime`?](./topcis/runtime.md)
 - [Как можно объявить функцию и какие есть особенности?](./topcis/function.md)
