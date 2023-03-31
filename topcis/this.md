@@ -2,6 +2,13 @@
 
 ## Содержание
 
+- [Что такое `this`?](#что-такое-this)
+- [Использование `this` внутри объектов](#использование-this-внутри-объектов)
+- [Использование `this` внутри функции, объявленной через оператор `new`](#использование-this-внутри-функции-объявленной-через-оператор-new)
+- [This и стрелочная функции](#this-и-стрелочная-функции)
+- [Как можно контролировать значение `this`?](#как-можно-контролировать-значение-this)
+- [Источника данных](#источника-данных)
+
 ## Что такое `this`?
 
 Ключевое слово `this` - это в первую очередь ссылка на контекст исполнения или доступа для функций и объектов.
@@ -110,3 +117,6 @@ console.log(superUser.getFullDescription()())
 ## Источника данных
 
 - [Context vs. Scope](http://ryanmorr.com/understanding-scope-and-context-in-javascript/)
+- [Function.prototype.call()](https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Global_Objects/Function/call)
+- [Function.prototype.apply()](https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Global_Objects/Function/apply)
+- [Function.prototype.bind()](https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Global_Objects/Function/bind)
