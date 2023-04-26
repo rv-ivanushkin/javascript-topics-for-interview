@@ -70,7 +70,7 @@
 
 ---
 
-- [Какие типы данных существуют?](./topics/base_types.md)
+- [Что такое `Union` и `Intersection`?](./topics/base_types.md)
 
 <br />
 
