@@ -70,7 +70,7 @@
 
 ---
 
-- [Что такое `Union` и `Intersection`?](./topics/type_vs_interfaces.md)
+- [Что такое `Union` и `Intersection`?](./topics_ts/union_and_ntersection.md)
 
 <br />
 
