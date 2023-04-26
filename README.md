@@ -81,9 +81,7 @@
 
 ---
 
-- [Что такое `Union` и `Intersection`?](./topics_ts/union_and_ntersection.md)
-
-<br />
+- [Всё что нужно знать про HTTP + CORS](./topics/http.md)
 
 <h3>
   <img src="./assets/CSS.png" width="16" height="16" />
