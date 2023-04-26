@@ -18,23 +18,23 @@
 
 ---
 
-- [Какие типы данных существуют?](./topcis/base_types.md)
-- [В чем различия `var` `let` `const` и что такое `hosing`?](./topcis/var_let_const_hosting.md)
-- [Как происходит приведение типов?](./topcis/type_conversions.md)
-- [Какие значения в JavaScript являются Falsy?](./topcis/falsy.md)
-- [Что такое замыкание и как оно работает?](./topcis/closure.md)
-- [Что такое `event-loop` и как он работает?](./topcis/event_loop.md)
-- [Что такое итератор, генератор и как ими пользоваться?](./topcis/generator_iterator.md)
-- [Какие коллекции существуют?](./topcis/collections.md)
-- [Что такое контекст вызова или `this` и как его явно установить?](./topcis/this.md)
+- [Какие типы данных существуют?](./topics/base_types.md)
+- [В чем различия `var` `let` `const` и что такое `hosing`?](./topics/var_let_const_hosting.md)
+- [Как происходит приведение типов?](./topics/type_conversions.md)
+- [Какие значения в JavaScript являются Falsy?](./topics/falsy.md)
+- [Что такое замыкание и как оно работает?](./topics/closure.md)
+- [Что такое `event-loop` и как он работает?](./topics/event_loop.md)
+- [Что такое итератор, генератор и как ими пользоваться?](./topics/generator_iterator.md)
+- [Какие коллекции существуют?](./topics/collections.md)
+- [Что такое контекст вызова или `this` и как его явно установить?](./topics/this.md)
   - А так же такие ключевые слова, как: `call`, `apply`, `bind`, `new`
-- [Как создавать асинхронный код?](./topcis/async.md)
-- [Что такое `Runtime`?](./topcis/runtime.md)
-- [Как можно объявить функцию и какие есть особенности?](./topcis/function.md)
+- [Как создавать асинхронный код?](./topics/async.md)
+- [Что такое `Runtime`?](./topics/runtime.md)
+- [Как можно объявить функцию и какие есть особенности?](./topics/function.md)
   - А так же `Higher Order Functions` или функции высшего порядка
-- [Как называть переменные и функции?](./topcis/nameing_rules.md)
-- [Сборка мусора | Как происходит сборка ненужных объектов?](./topcis/garbage_collect.md)
-- [Как вести отладку когда в Google Chrome?](./topcis/debugging.md)
+- [Как называть переменные и функции?](./topics/nameing_rules.md)
+- [Сборка мусора | Как происходит сборка ненужных объектов?](./topics/garbage_collect.md)
+- [Как вести отладку когда в Google Chrome?](./topics/debugging.md)
 
 <details>
   <summary>Прекрасный цикл статей - Как работает JS</summary>
@@ -64,13 +64,26 @@
 <br />
 
 <h3>
+  <img src="./assets/ts-logo-128.png" width="16" height="16" />
+  <span>TypeScript:</span>
+</h3>
+
+---
+
+- [Какие типы данных существуют?](./topics/base_types.md)
+
+<br />
+
+<h3>
   <img src="./assets/HTTP_logo.svg" width="16" height="16" />
   <span>HTTP протокол:</span>
 </h3>
 
 ---
 
-- [Всё что нужно знать про HTTP + CORS](./topcis/http.md)
+- [Что такое `Union` и `Intersection`?](./topics_ts/union_and_ntersection.md)
+
+<br />
 
 <h3>
   <img src="./assets/CSS.png" width="16" height="16" />
